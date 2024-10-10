@@ -1,0 +1,32 @@
+MS Store - powershell cmd
+"Get-AppXPackage -AllUsers |Where-Object {$_.InstallLocation -like '*SystemApps*'} | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register '$($_.InstallLocation)\AppXManifest.xml'}"
+Get-AppxPackage -AllUsers | ForEach-Object {
+    Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"
+}
+Get-AppXPackage -AllUsers | Where-Object { $_.Name -like "*your_app_name*" }
+Get-AppxPackage -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+$path = "$($_.InstallLocation)\AppXManifest.xml"
+if (Test-Path $path) {
+    Add-AppxPackage -DisableDevelopmentMode -Register $path
+} else {
+    Write-Host "Path does not exist: $path"
+}
+
+
+
+In google, Verifying you are human. This may take a few seconds.
+netsh int ip reset
+netsh winsock reset
+ipconfig /flushdns
+To perform a traceroute on Windows: tracert google.com
+Finding authoritative name server on Windows: nslookup -type=SOA google.com
+nmap: nmap -vv IP/netmask
+	nmap --top-ports 100 <target>
+	nmap -sV <target>
+	nmap -sC <target>
+	nmap -O <target>
+	nmap -A <target>
+	nmap -6 <target>
+
+yarn upgrade
+yarn set version berry

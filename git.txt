@@ -1,0 +1,20 @@
+-Generate SSH key
+ ssh-keygen -t ed25519 -C "topdev961010@gmail.com"
+ ssh-keygen -t rsa -b 4096 -C "topdev961010@gmail.com"
+ cat ~/.ssh/id_rsa.pub
+
+-Make fake commit
+git remote set-url origin "git@github.com:topDevfullstack/xxx.git"
+
+git filter-branch -f --env-filter "GIT_AUTHOR_NAME='topdev' GIT_AUTHOR_EMAIL='kalvinson961010@gmail.com' GIT_COMMITTER_NAME='topdev' GIT_COMMITTER_EMAIL='kalvinson961010@gmail.com'" HEAD
+
+
+-Merge
+git fetch
+git rebase orgin/pro
+
+git fetch
+git pull --rebase origin master
+git add <resolved_file>
+git rebase --continue
+

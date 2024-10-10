@@ -1,0 +1,8 @@
+in CMD
+slmgr.vbs /upk
+slmgr /ipk <Windows 10 activation key>
+slmgr /skms zh.us.to
+slmgr /ato
+
+
+slmgr /skms kms.xspace.in
